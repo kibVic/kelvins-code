@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
-import random
 
 # Set seed for reproducibility
 np.random.seed(42)
