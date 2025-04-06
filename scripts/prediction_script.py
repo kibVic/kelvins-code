@@ -1,4 +1,3 @@
-# import pandas as pd
 import matplotlib.pyplot as plt
 import psycopg2
 import logging
@@ -78,37 +77,16 @@ def split_data(X, y, test_size=0.2, random_state=42):
     )
 
 
-# Define the model training function with Grid Search for hyperparameter tuning
-# def train_model_with_tuning(X_train, y_train):
-#     param_grid = {
-#         'n_estimators': [100, 200],
-#         'max_depth': [10, 20, 30],
-#         'min_samples_split': [2, 5, 10],
-#         'min_samples_leaf': [1, 2, 4],
-#         'bootstrap': [True, False],
-#         'class_weight': ['balanced', None]  # Handle class imbalance by adjusting class weights
-#     }
-#     rf = RandomForestClassifier(random_state=42)
-#     grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, n_jobs=-1, verbose=2, scoring='accuracy')
-
-
-#     try:
-#         grid_search.fit(X_train, y_train)
-#         logging.info("Best Parameters: %s", grid_search.best_params_)
-#         return grid_search.best_estimator_
-#     except Exception as e:
-#         logging.error(f"Error training model: {e}")
-#         raise
 # Define the model training function with GridSearchCV for hyperparameter tuning
 def train_model_with_tuning(X_train, y_train):
     # Define the hyperparameter grid
     param_grid = {
-        "n_estimators": [100, 200],  # Reduce number of estimators
-        "max_depth": [10, 20],  # Reduce the number of max_depth values
-        "min_samples_split": [2, 5],  # Reduce the min_samples_split values
-        "min_samples_leaf": [1, 2],  # Reduce the min_samples_leaf values
+        "n_estimators": [100, 200],
+        "max_depth": [10, 20],
+        "min_samples_split": [2, 5],
+        "min_samples_leaf": [1, 2],
         "bootstrap": [True, False],
-        "class_weight": ["balanced", None],  # Class weight to handle imbalance
+        "class_weight": ["balanced", None],
     }
 
     # Instantiate the RandomForestClassifier
