@@ -192,7 +192,7 @@ def main():
         "host": "localhost",
         "port": "5432",
     }
-    query = "SELECT * FROM prediction_dataset;"
+    query = "SELECT * FROM prediction_data;"
 
     try:
         # Load data from PostgreSQL
