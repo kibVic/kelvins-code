@@ -96,9 +96,9 @@ def train_model_with_tuning(X_train, y_train):
     grid_search = GridSearchCV(
         estimator=rf,
         param_grid=param_grid,
-        cv=3,  # Reduce cross-validation folds to 3
-        n_jobs=-1,  # Use all available CPUs
-        verbose=1,  # Adjust verbosity as per your needs
+        cv=3,  
+        n_jobs=-1,  
+        verbose=1,  
         scoring="accuracy",
     )
 
