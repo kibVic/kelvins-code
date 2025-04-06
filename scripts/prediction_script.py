@@ -61,7 +61,7 @@ def preprocess_data(df):
     df["day_of_week"] = df["sensor_timestamp"].dt.dayofweek
 
     # Drop unnecessary columns
-    df_model = df.drop(columns=["sensor_timestamp", "modis_timestamp"])
+    df_model = df.drop(columns=["sensor_timestamp", "modis_timestamp","day_of_week","hour_of_day"])
 
     # Define features (X) and target (y)
     X = df_model.drop(columns="fire_detected")
@@ -192,7 +192,7 @@ def main():
         "host": "localhost",
         "port": "5432",
     }
-    query = "SELECT * FROM prediction_data;"
+    query = "SELECT * FROM prediction_data limit 10000;"
 
     try:
         # Load data from PostgreSQL
